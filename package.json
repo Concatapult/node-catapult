@@ -1,0 +1,33 @@
+{
+  "name": "node-catapult",
+  "version": "1.0.0",
+  "description": "A rapid project starter for node and browserify.",
+  "main": "server/index.js",
+  "scripts": {
+    "watch": "nodemon server/ --ignore client/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gilbert <gilbertbagrza@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify-middleware": "^5.0.2",
+    "express": "^4.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mindeavor/node-catapult"
+  },
+  "keywords": [
+    "boilerplate",
+    "browserify",
+    "express",
+    "mithril"
+  ],
+  "bugs": {
+    "url": "https://github.com/mindeavor/node-catapult/issues"
+  },
+  "homepage": "https://github.com/mindeavor/node-catapult"
+}
