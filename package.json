@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "watch": "nodemon server/ --ignore client/",
+    "start": "node server/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gilbert <gilbertbagrza@gmail.com>",
