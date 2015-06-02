@@ -1,5 +1,5 @@
 var m = require('mithril')
-var MyComponent = require('./components/my-component/my-component.js')
+var MyComponent = require('./components/MyComponent')
 
 
 window.App = {}
