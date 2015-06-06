@@ -20,3 +20,11 @@ Now visit [localhost:4000](http://localhost:4000/)
 ## Browserify Middleware
 
 The most notable part of this app is [browserify-middleware](https://github.com/ForbesLindesay/browserify-middleware). Great node packages are exceedingly rare – this is one of those packages.
+
+## Run using Docker
+
+```
+$ docker-compose bulid
+$ docker-compose run app npm install
+$ docker-compose up
+```
