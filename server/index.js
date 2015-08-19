@@ -2,10 +2,9 @@ var browserify = require('browserify-middleware')
 var express = require('express')
 var app = express()
 
-//provide a browserified file at a path
-var shared = ['mithril']
-app.get('/js/vendor-bundle.js', browserify(shared))
-app.get('/js/app-bundle.js', browserify('./client/app-bundle/index.js', { external: shared }))
+// Provide a browserified file at a specified path
+app.get('/js/app-bundle.js',
+  browserify('./client/app-bundle/index.js'))
 
 // Non-js static files
 app.use(express.static('client/public'))
