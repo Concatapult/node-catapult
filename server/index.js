@@ -5,7 +5,7 @@ var Path = require('path')
 
 // Provide a browserified file at a specified path
 app.get('/js/app-bundle.js',
-  browserify('./client/app-bundle/index.js'))
+  browserify('./client/app.js'))
 
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')
