@@ -19,7 +19,7 @@ Now visit [localhost:4000](http://localhost:4000/)
 
 ## Jump-starting your App
 
-Check the [wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
+[Check the wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
 
 - Express cookie sessions
 - Postgres and knex.js
