@@ -13,8 +13,9 @@ app.use(express.static(assetFolder))
 
 
 //
-// Support browser history pushstate.
-// NOTE: Make sure this route is always last.
+// The Catch-all Route
+// This is for supporting browser history pushstate.
+// NOTE: Make sure this route is always LAST.
 //
 app.get('/*', function(req, res){
   res.sendFile( assetFolder + '/index.html' )
