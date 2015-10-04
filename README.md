@@ -21,6 +21,7 @@ Now visit [localhost:4000](http://localhost:4000/)
 
 [Check the wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
 
+- Support for SASS and Babel
 - Express cookie sessions
 - Postgres and knex.js
 - A functional-programming-based "ORM" pattern for your database models
