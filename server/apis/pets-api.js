@@ -11,22 +11,24 @@ PetsAPI.get('/', function(req, res) {
 })
 
 
-var petStore = []
+var db = require('../lib/db')
+
 var Pet = {}
-var idCounter = 10
 
 Pet.create = function (attrs) {
-  attrs.id = (idCounter += 1)
-  petStore.push(attrs)
-  return Promise.resolve(attrs)
-}
-
-Pet.validate = function (attrs) {
-  return Joi.validate(attrs, mySchema)
+  return db('pets').insert(attrs).returning('id')
+    .then(function(rows) {
+      var newPet = {
+        name: attrs.name,
+        species: attrs.species,
+        id: rows[0]
+      }
+      return newPet
+    })
 }
 
 Pet.all = function () {
-  return Promise.resolve(petStore)
+  return db('pets').select('*')
 }
 
 

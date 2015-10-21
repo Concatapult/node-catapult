@@ -1,3 +1,4 @@
+var db = require(__server + '/lib/db')
 var request = require('supertest-as-promised')
 var PetsAPI = require(__server + '/apis/pets-api')
 
@@ -6,6 +7,10 @@ describe("Pets API", function() {
   var app = TestHelper.createApp()
   app.use('/pets', PetsAPI)
   app.testReady()
+
+  beforeEach(function() {
+    return db.deleteEverything()
+  })
 
   it("creates and retrieves a pet", function() {
 
