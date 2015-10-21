@@ -1,26 +1,54 @@
 var browserify = require('browserify-middleware')
 var express = require('express')
-var app = express()
 var Path = require('path')
 
+var routes = express.Router()
+
+//
 // Provide a browserified file at a specified path
-app.get('/js/app-bundle.js',
+//
+routes.get('/js/app-bundle.js',
   browserify('./client/app.js'))
 
-// Non-js static files
-var assetFolder = Path.resolve(__dirname, '../client/public')
-app.use(express.static(assetFolder))
-
-
 //
-// The Catch-all Route
-// This is for supporting browser history pushstate.
-// NOTE: Make sure this route is always LAST.
+// Example endpoint (also tested in test/server/index_test.js)
 //
-app.get('/*', function(req, res){
-  res.sendFile( assetFolder + '/index.html' )
+routes.get('/api/tags-example', function(req, res) {
+  res.send(['node', 'express', 'browserify', 'mithril'])
 })
 
-var port = process.env.PORT || 4000
-app.listen(port)
-console.log("Listening on port", port)
+//
+// Static assets (html, etc.)
+//
+var assetFolder = Path.resolve(__dirname, '../client/public')
+routes.use(express.static(assetFolder))
+
+
+if (process.env.NODE_ENV !== 'test') {
+  //
+  // The Catch-all Route
+  // This is for supporting browser history pushstate.
+  // NOTE: Make sure this route is always LAST.
+  //
+  routes.get('/*', function(req, res){
+    res.sendFile( assetFolder + '/index.html' )
+  })
+
+  //
+  // We're in development or production mode;
+  // create and run a real server.
+  //
+  var app = express()
+
+  // Mount our main router
+  app.use('/', routes)
+
+  // Start the server!
+  var port = process.env.PORT || 4000
+  app.listen(port)
+  console.log("Listening on port", port)
+}
+else {
+  // We're in test mode; make this file importable instead.
+  module.exports = routes
+}
