@@ -32,6 +32,7 @@ var express = require('express')
 
 TestHelper.createApp = function (loader) {
   var app = express()
+  app.use(require('body-parser').json())
 
   app.testReady = function () {
     // Log all errors

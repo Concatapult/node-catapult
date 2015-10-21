@@ -40,6 +40,9 @@ if (process.env.NODE_ENV !== 'test') {
   //
   var app = express()
 
+  // Parse incoming request bodies as JSON
+  app.use( require('body-parser').json() )
+
   // Mount our main router
   app.use('/', routes)
 
