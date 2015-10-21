@@ -17,6 +17,9 @@ routes.get('/api/tags-example', function(req, res) {
   res.send(['node', 'express', 'browserify', 'mithril'])
 })
 
+// GET  /pets
+// POST /pets
+
 //
 // Static assets (html, etc.)
 //
