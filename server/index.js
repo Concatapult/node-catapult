@@ -7,7 +7,7 @@ var routes = express.Router()
 //
 // Provide a browserified file at a specified path
 //
-routes.get('/js/app-bundle.js',
+routes.get('/app-bundle.js',
   browserify('./client/app.js'))
 
 //
