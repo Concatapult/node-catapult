@@ -10,7 +10,20 @@ PetsAPI.get('/', function(req, res) {
     })
 })
 
+PetsAPI.post('/', function(req, res) {
+  Pet.create(req.body)
+    .then(function(newPet) {
+      res.status(201).send(newPet)
+    })
+})
 
+module.exports = PetsAPI
+
+// ---------
+// Pet Model
+// ---------
+// I coded this here for the lecture, but this should go in a separate file!
+// Specifically: server/models/pet.js
 var db = require('../lib/db')
 
 var Pet = {}
@@ -30,16 +43,5 @@ Pet.create = function (attrs) {
 Pet.all = function () {
   return db('pets').select('*')
 }
-
-
-PetsAPI.post('/', function(req, res) {
-  Pet.create(req.body)
-    .then(function(newPet) {
-      res.status(201).send(newPet)
-    })
-})
-
-
-
-
-module.exports = PetsAPI
+// ---------
+// ---------
