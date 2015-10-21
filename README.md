@@ -17,6 +17,10 @@ $ npm start
 
 Now visit [localhost:4000](http://localhost:4000/)
 
+### Running the Tests
+
+There is a basic test framework in your `test/` folder. To run the tests, simply run `npm test`.
+
 ## Jump-starting your App
 
 [Check the wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
