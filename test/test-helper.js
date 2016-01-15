@@ -1,3 +1,4 @@
+require('../ext/server')
 process.env.NODE_ENV = 'test'
 
 // The following allows you to require files independent of
@@ -7,6 +8,13 @@ process.env.NODE_ENV = 'test'
 //
 global.__server = __dirname + '/../server'
 global.__client = __dirname + '/../client'
+
+
+// Mocha "helpers" to support coroutines tests
+global.beforeEach_ = function (f) { beforeEach( Promise.coroutine(f) ) }
+global.it_ = function (description, f) { it( description, Promise.coroutine(f) ) }
+global.xit_ = function (description, f) { xit( description, f ) }
+global.it_.only = function (description, f) { it.only( description, Promise.coroutine(f) ) }
 
 //
 // Assertions

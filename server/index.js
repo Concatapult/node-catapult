@@ -10,6 +10,12 @@ var routes = express.Router()
 routes.get('/app-bundle.js',
   browserify('./client/app.js'))
 
+
+routes.use('/chats', require('./apis/chats-api'))
+
+// var chatsAPI = require('./apis/chats-api')
+// routes.use('/chats', chatsAPI)
+
 //
 // Example endpoint (also tested in test/server/index_test.js)
 //
