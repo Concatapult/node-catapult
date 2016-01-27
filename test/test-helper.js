@@ -44,3 +44,27 @@ TestHelper.createApp = function (loader) {
   }
   return app
 }
+
+//
+// Monkey-patch mocha's `it` function
+// to support `yield` within generator functions
+// for pleasant test writing.
+//
+// Thanks goes to http://stackoverflow.com/a/23029774/49695
+//
+var suspend = require('suspend')
+
+var originalIt = it
+it = function(title, test) {
+
+  // If the test is a generator function - run it using suspend
+  if (test.constructor.name === 'GeneratorFunction') {
+    originalIt(title, function(done) {
+      suspend.run(test, done)
+    })
+  }
+  // Otherwise use the original implementation
+  else {
+    originalIt(title, test)
+  }
+}
