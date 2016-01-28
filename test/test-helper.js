@@ -15,7 +15,7 @@ var chai = require('chai')
 // Option 1: Make the `expect` function available in every test file
 global.expect = chai.expect
 // Option 2: Make everything should-able
-// chai.should()
+// global.should = chai.should()
 
 
 //
