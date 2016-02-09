@@ -52,15 +52,15 @@ TestHelper.createApp = function (loader) {
 //
 // Thanks goes to http://stackoverflow.com/a/23029774/49695
 //
-var suspend = require('suspend')
+var Bluebird = require('bluebird')
 
 var originalIt = it
 it = function(title, test) {
 
   // If the test is a generator function - run it using suspend
   if (test.constructor.name === 'GeneratorFunction') {
-    originalIt(title, function(done) {
-      suspend.run(test, done)
+    originalIt(title, function() {
+      return Bluebird.coroutine(test)()
     })
   }
   // Otherwise use the original implementation
