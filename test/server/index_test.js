@@ -1,6 +1,6 @@
 require(TEST_HELPER) // <--- This must be at the top of every test file.
 
-var request = require('supertest')
+var request = require('supertest-as-promised')
 var routes = require(__server + '/index.js')
 
 describe("The Server", function() {
