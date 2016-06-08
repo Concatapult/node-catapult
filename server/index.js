@@ -11,11 +11,9 @@ routes.get('/app-bundle.js',
   browserify('./client/app.js'))
 
 //
-// Example endpoint (also tested in test/server/index_test.js)
+// API Endpoints
 //
-routes.get('/api/tags-example', function(req, res) {
-  res.send(['node', 'express', 'browserify', 'mithril'])
-})
+routes.use('/', require('./apis/pets-api'))
 
 //
 // Static assets (html, etc.)
