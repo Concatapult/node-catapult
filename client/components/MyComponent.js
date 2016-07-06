@@ -1,9 +1,7 @@
 var m = require('mithril')
 
-exports.controller = function (options) {}
-
-exports.view = function (ctrl, options) {
+exports.view = function (vnode) {
   return m('.my-component', [
-    m('h2', options.title)
+    m('h2', vnode.attrs.title)
   ])
 }
