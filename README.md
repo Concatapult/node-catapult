@@ -26,6 +26,7 @@ There is a basic test framework in your `test/` folder. To run the tests, simply
 [Check the wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
 
 - Support for SASS and Babel
+- How to set up React.js
 - Express cookie sessions
 - Postgres and knex.js
 - A functional-programming-based "ORM" pattern for your database models
