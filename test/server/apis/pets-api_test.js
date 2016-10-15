@@ -9,7 +9,7 @@ describe("Pets API", function() {
   app.use('/', routes)
   app.testReady()
 
-  it_.only("creates and gets all pets", function * () {
+  it_("creates and gets all pets", function * () {
     var newPet;
 
     yield request(app)
