@@ -1,4 +1,4 @@
-# Node Catapult
+# Node catapult is DEPRECATED - Please use [pult](https://github.com/Concatapult/pult) instead, a much better alternative!
 
 A boilerplate starter project that includes Node, Express, Browserify, and Mithril:
 
